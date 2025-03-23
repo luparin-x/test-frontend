@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { Button, TextField, Box, Typography } from '@mui/material';
 import toast from 'react-hot-toast';
+import API_ENDPOINTS from '../config/api';
 
 const RegisterForm = ({ setToken }: { setToken: (token: string) => void }) => {
   const [username, setUsername] = useState('');
@@ -31,7 +32,7 @@ const RegisterForm = ({ setToken }: { setToken: (token: string) => void }) => {
 
     setIsLoading(true);
     try {
-      const response = await axios.post('https://thoughtless-carolyne-anveshax-00a36609.koyeb.app/auth/register', {
+      const response = await axios.post(API_ENDPOINTS.REGISTER, {
         username,
         email,
         phone,

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { Button, TextField, Box, Typography } from '@mui/material';
 import toast from 'react-hot-toast';
+import API_ENDPOINTS from '../config/api';
 
 const LoginForm = ({ setToken }: { setToken: (token: string) => void }) => {
   const [username, setUsername] = useState('');
@@ -16,7 +17,7 @@ const LoginForm = ({ setToken }: { setToken: (token: string) => void }) => {
 
     setIsLoading(true);
     try {
-      const response = await axios.post('https://thoughtless-carolyne-anveshax-00a36609.koyeb.app/auth/login', {
+      const response = await axios.post(API_ENDPOINTS.LOGIN, {
         username,
         password,
       });
